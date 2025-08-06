@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nawal's art</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body style="background-color:rgb(249, 255, 255)">
+    <header>
+   <div class="navbar">
+    <div class="thumbnail-img border">
+        <div class="thumbnail">
+        </div>
+    </div>
+    <div class="nav-home border" onclick="showAllSections()">Home</div>
+     <div class="nav-shop border" onclick="showAllSections()">Shop</div>
+     <div class="nav-contact border">
+  <p><a href="#" onclick="goToContact()">Contact</a></p>
+</div>
+    <div class="navbar1">
+    <div class="nav-login" onclick="toggleLoginModal()">
+  <i class="fa-solid fa-circle-user"></i>
+  <p id="login-username">Login</p>
+</div>
+    <div class="nav-cart" onclick="viewCart()">
+    🛒
+    <span id="cart-count">0</span>
+  </div>
+  <button onclick="openCart()">🛒 View Cart</button>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_uVBDuQ21mL0FH-KQ6yqtFU0cD2CeAUvFW9FCRvXv7mNMeQ/viewform?usp=dialog">
+  <button class="order-btn" onclick="openOrderForm()">Order Now</button></a>
+<!--LOGIN MODEL-->
+  <div id="loginModal" class="modal hidden">
+  <div class="modal-content">
+    <h3>Login</h3>
+    <input type="text" id="username" placeholder="Enter Username" required>
+    <input type="password" id="password" placeholder="Enter Password" required>
+    <button onclick="loginUser()">Login</button>
+    <button onclick="closeLoginModal()" class="close-btn">Cancel</button>
+  </div>
+</div>
+<div id="order-form" class="hidden order-modal">
+  <h3>Place Your Order</h3>
+  <div id="order-items"></div>
+
+  <input type="text" id="customerName" placeholder="Your Name" required>
+<input type="text" id="customerPhone" placeholder="Phone Number" required>
+<textarea id="customerAddress" placeholder="Your Address" required></textarea>
+  
+  <button onclick="submitOrder()">Submit Order</button>
+  <p id="order-status"></p>
+</div>
+<!-- 🛒 Cart Modal -->
+<div id="cartModal" class="hidden cart-modal">
+  <div class="cart-content">
+    <h2>Your Cart</h2>
+    <ul id="cartItemsList"></ul>
+    <p><strong>Total:</strong> <span id="cartTotal">Rs. 0</span></p>
+    <button onclick="openGoogleFormModal()">Place Order</button>
+    <button onclick="closeCart()">Close</button>
+  </div>
+</div>
+
+<div id="googleFormModal" class="hidden modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeGoogleFormModal()">&times;</span>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe_uVBDuQ21mL0FH-KQ6yqtFU0cD2CeAUvFW9FCRvXv7mNMeQ/viewform?embedded=true" width="640" height="1477" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+</div>
+
+   </div>
+    </div>
+    </header>
+     <h4 style="font:serif;">FREE SHIPPING on all orders over 4000. Worldwide shipping available.</h4>
+    <div class="shop-section border1">
+        <div class="box1 box">
+            <div class="box-content">
+            <div class="box-img" style="background-image: url('1.png');" alt="arabic"></div>
+         <h3>Arabic calligraphy</h3><br>
+         <p style="font-weight: bold;">RS 2000</p>
+          <button onclick="addToCart('1.png',2000)">Add to Cart</button>
+  </div>
+</div>
+  <div class="box2 box">
+            <div class="box-content">
+            <div class="box-img" style="background-image: url('2.png');" alt="arabic"></div>
+         <h3>Ayatul Kursi,Hand-carved calligraphy</h3><br>
+         <p style="font-weight: bold;">RS 1500</p>
+         <button onclick="addToCart('2.png',1500)">Add to Cart</button>
+  </div>
+</div>
+  <div class="box3 box">
+            <div class="box-content">
+            <div class="box-img" style="background-image: url('3.jpg');" alt="arabic"></div>
+         <h3>Handmade calligraphy painting on stone</h3><br>
+         <p style="font-weight: bold;">RS 1700</p>
+         <button onclick="addToCart('3.png',1700)">Add to Cart</button>
+  </div>
+</div>
+</div>
+
+<div class="shop-section1">
+        <div class="box4 box1">
+            <div class="box-content1">
+            <div class="box-img1" style="background-image: url('4.png');" alt="arabic"></div>
+         <h3>Custom calligraphy for your heart and soul</h3><br>
+         <p style="font-weight: bold;">RS 2000</p>
+         <button onclick="addToCart('4.png',2000)">Add to Cart</button>
+  </div>
+</div>
+  <div class="box5 box1">
+            <div class="box-content1">
+            <div class="box-img1" style="background-image: url('6.jpg');" alt="arabic"></div>
+         <h3>Qalam meets qeemat,the priceless art of divine calligraphy on stone</h3><br>
+         <p style="font-weight: bold;">RS 1800</p>
+         <button onclick="addToCart('6.png',1800)">Add to Cart</button>
+  </div>
+</div>
+  <div class="box6 box1">
+            <div class="box-content1">
+            <div class="box-img1" style="background-image: url('7.jpg');" alt="arabic"></div>
+         <h3>When Allah's name is engraved in stone, it becomes eternal</h3><br>
+         <p style="font-weight: bold;">RS 1800</p>
+         <button onclick="addToCart('7.png',1800)">Add to Cart</button>
+  </div>
+</div>
+</div>
+
+<div class="shop-section2">
+        <div class="box7 box2">
+            <div class="box-content2">
+            <div class="box-img2" style="background-image: url('5.jpg');" alt="arabic"></div>
+         <h3>Hand-carved stone calligraphy — beauty that never fades</h3><br>
+         <p style="font-weight: bold;">RS 2500</p>
+         <button onclick="addToCart('5.png',2500)">Add to Cart</button>
+  </div>
+</div>
+  <div class="box8 box2">
+            <div class="box-content2">
+            <div class="box-img2" style="background-image: url('8.jpg');" alt="arabic"></div>
+         <h3>One-of-a-kind Islamic calligraphy art on natural stone</h3><br>
+         <p style="font-weight: bold;">RS 3000</p>
+         <button onclick="addToCart('8.png',3000)">Add to Cart</button>
+  </div>
+</div>
+  <div class="box9 box2">
+            <div class="box-content2">
+            <div class="box-img2" style="background-image: url('9.png');" alt="arabic"></div>
+         <h3>Crafted on quality paper, written with love</h3><br>
+         <p style="font-weight: bold;">RS 700</p>
+         <button onclick="addToCart('9.png',700)">Add to Cart</button>
+  </div>
+</div>
+</div><br><br><br><br>
+
+<footer>
+        <div class="foot-panel">
+            <div class="pages">
+               <pre><a>For all questions and enquiries, please email
+                 nawalfatima303@gmail.com
+     ©2025 by nawal Calligraphy® All rights reserved</a></pre>
+            </div>
+        </div>       
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
